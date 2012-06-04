@@ -67,6 +67,7 @@ GEM
     net-http-persistent (2.6)
     nokogiri (1.5.3)
     ntlm-http (0.1.1)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -124,6 +125,7 @@ DEPENDENCIES
   jquery-rails
   mechanize
   nokogiri
+  pg
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
