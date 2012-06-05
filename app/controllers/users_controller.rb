@@ -14,12 +14,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    ############ info ###############3
-    
+    ############ info [fn, fac, crr, pic]####3
     @info = info @user.codigo
-    ############ cursos ##############3
+    ############ cursos => {pp, ex}##########3
     @cur = cursos @user.codigo, @user.password
-    ##################################3
+    #########################################3
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,16 +46,17 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    @user.save
+    redirect_to @user
+    # respond_to do |format|
+    #   if @user.save
+    #     format.html #{ redirect_to @user, notice: 'User was successfully created.' }
+    #     format.json { render json: @user }#, status: :created, location: @user }
+    #   else
+    #     format.html { render action: "new" }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PUT /users/1
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user } #, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

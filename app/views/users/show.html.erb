@@ -13,7 +13,7 @@
 <% if @info.size != nil %>
 <ul data-role="listview" data-theme="c">
 	<li><%= @info[0].split("-").join(" ").downcase.titleize %></li>
-	<li><%= @info[2].downcase.titleize %></li>
+	<li><%= @info[2].downcase.titleize.gsub("Í", "í").gsub(" De ", " de ") %></li>
 	<!-- <li><%= @info[-1] %></li> -->
 </ul>
 <% end %>
@@ -23,18 +23,14 @@
 	<% @cur.each do |key, value|%>
 		<div data-role="collapsible">
 		   <h3><%= key %></h3>
-		   <% value.delete_if { |v| v =~ /--/} %>
-		   <% if value.size == 0%>
-		   		<p>No hay notas!</p>
-		   <% else %>
-		   		<p>Practicas: <%= value.join(",")%></p>
-		   <% end %>
+		   <p><%= show_me "practicas",value %></p>
+		   <p><%= show_me "examenes", value %></p>
 		</div>
 	<% end %>
 <% end %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Back', users_path, 'data-role' => 'button', 'data-icon' => 'arrow-l', 'data-theme' => 'b' %></li>
+		<!-- <li><%= link_to 'Back', root_path, 'data-role' => 'button', 'data-icon' => 'arrow-l', 'data-theme' => 'b' %></li> -->
 		<li><%= link_to 'Edit', edit_user_path(@user), 'data-role' => 'button', 'data-icon' => 'gear', 'data-theme' => 'a' %></li>
 		<li><%= link_to 'Destroy', @user, confirm: 'Are you sure?', method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b', 'data-rel' => 'dialog' %></li>
 	</ul>
