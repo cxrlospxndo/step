@@ -13,22 +13,20 @@
 </head>
 <body>
 
-<div id ="home" data-role="page">
-  <div data-role="header">
+<section id ="home" data-role="page">
+  <header data-role="header">
     <!-- <h1>Step</h1> -->
-    <div data-role="navbar">
+    <nav data-role="navbar">
       <ul>
         <li><%= link_to "Home", root_path, 'data-icon' => 'home' %></li>
         <li><a href="http://www.orce.uni.edu.pe/movil/index.php" data-icon='alert'>Old</a></li>
       </ul>
-    </div>
-  </div>
-
-  <div data-role="content"> 
+    </nav>
+  </header>
+  <article data-role="content"> 
     <%= yield %>   
-  </div>
-
-</div>
+  </article>
+</section>
 
 </body>
 </html>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   public
   def info codigo
   	agent = Mechanize.new
-    cod = codigo
+    cod = codigo.upcase
     url = "http://www.orce.uni.edu.pe/detaalu.php?id=#{cod}&op=detalu"
 
     page = agent.get url  
@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
   def cursos codigo, password
   	cursos = Hash.new{ |a, b| a[b] = Hash.new { |hash, key| hash[key] =Array.new  } }
 
-    # noteles = { 'practicas' => [1,2,3], 'examenes' => [10,20] }
-    # cursos['cbalgo'] = noteles
+    # notas = { 'practicas' => [1,2,3], 'examenes' => [10,20] }
+    # cursos['cbalgo'] = notas
 
     # puts cursos.inspect
     # puts cursos['cbalgo']['practicas'].inspect
@@ -42,7 +42,6 @@ class ApplicationController < ActionController::Base
       ex = []
 
       page4.parser.css("tr td").each do |cont|
-        #puts cont.content
         ex << cont.content
       end
 
@@ -73,11 +72,16 @@ class ApplicationController < ActionController::Base
         cursos[cod] = { 'practicas' => a[ x..y], 'examenes' => examenes[cod] }
       end
 
-      #puts periodo
+      # puts periodo
       # cursos.each {|curso| puts curso.inspect }
       # puts cursos.inspect 
       # puts cursos['GP102V'].inspect
     end
     cursos
+  end
+  def valid? params
+    url = URI('http://www.orce.uni.edu.pe/logeo.php')
+    res = Net::HTTP.post_form url, params
+    res.body =~ /Error/ ? true:false
   end
 end
