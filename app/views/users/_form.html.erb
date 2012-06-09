@@ -1,11 +1,11 @@
 <%= form_for(@user) do |f| %>
   <div data-role="fieldcontain" class="ui-hide-label">
     <%= f.label :codigo %>
-    <%= f.text_field :codigo, 'placeholder' => 'codigo' %>
+    <%= f.text_field :codigo, 'placeholder' => 'codigo', 'required' =>"required" %>
   </div>
   <div data-role="fieldcontain" class="ui-hide-label">
     <%= f.label :password %>
-    <%= f.password_field :password, 'placeholder' => 'password' %>
+    <%= f.password_field :password, 'placeholder' => 'password', 'required' => "required" %>
   </div>
 
   <div data-role="fieldcontain" class="actions">

@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.find_or_create_by_codigo_and_password(params[:user][:codigo].upcase, params[:user][:password])
     if valid? params[:user]
       @user.save
       redirect_to @user

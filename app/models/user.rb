@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   def fullname
 
     agent = Mechanize.new
-    cod = self.codigo
+    cod = self.codigo.upcase
     url = "http://www.orce.uni.edu.pe/detaalu.php?id=#{cod}&op=detalu"
 
     page = agent.get url  
@@ -15,12 +15,14 @@ class User < ActiveRecord::Base
     page.parser.css("tr td").each do |f|
       (a << f.text) if p.include? i+=1
     end
+    @full = a[0]
   	a[0].split("-").join(" ").downcase.titleize 
+
   end
 
   def pic
   	agent = Mechanize.new
-    cod = codigo
+    cod = codigo.upcase
     url = "http://www.orce.uni.edu.pe/detaalu.php?id=#{cod}&op=detalu"
 
     page = agent.get url  
