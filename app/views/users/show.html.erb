@@ -1,13 +1,10 @@
-<% if @info.size != nil %>
 <ul data-role="listview" data-theme="c">
-	<li><%= @info[0].split("-").join(" ").downcase.titleize %></li>
-	<li><%= @info[2].downcase.titleize.gsub("Í", "í").gsub(" De ", " de ") %></li>
-	<!-- <li><%= @info[-1] %></li> -->
+	<li><%= @info.fullname %></li>
+	<li><%= @info.esp %></li>
+	<li>Ciclo relativo : <%= dar_formato @info.ciclo %></li>
 </ul>
-<% end %>
 <br/>
 <% if @cur.size != nil %>
-	<!-- <p><%= @cur.inspect %></p> -->
 	<% @cur.each do |key, value|%>
 		<div data-role="collapsible">
 		   <h3><%= key %></h3>

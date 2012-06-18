@@ -10,4 +10,8 @@ module ApplicationHelper
 	   	end
 	   	html
 	end
+	def dar_formato number
+			require 'active_support/core_ext/integer/inflections'
+			number.to_i.ordinalize
+	end
 end

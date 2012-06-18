@@ -11,11 +11,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    ############ info [fn, fac, crr, pic]####3
-    @info = info @user.codigo
-    ############ cursos => {pp, ex}##########3
+    @info = @user.info
     @cur = cursos @user.codigo, @user.password
-    #########################################3
 
     respond_to do |format|
       format.html 
@@ -37,10 +34,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_by_codigo_and_password(params[:user][:codigo].upcase, params[:user][:password])
     if valid? params[:user]
-      @user.save
+      @user = User.find_or_create_by_codigo_and_password(params[:user][:codigo].upcase, params[:user][:password])
+      @info = @user.build_info if @user.info == nil
       redirect_to @user
+    else
+      redirect_to new_user_path
     end
   end
 

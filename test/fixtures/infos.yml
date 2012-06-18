@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fullname: MyString
+  facultad: MyString
+  esp: MyString
+  situacion: MyString
+  medisc: MyString
+  ciclo: MyString
+  pic: MyString
+
+two:
+  fullname: MyString
+  facultad: MyString
+  esp: MyString
+  situacion: MyString
+  medisc: MyString
+  ciclo: MyString
+  pic: MyString

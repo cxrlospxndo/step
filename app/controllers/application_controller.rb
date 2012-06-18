@@ -1,25 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  public
-  def info codigo
-  	agent = Mechanize.new
-    cod = codigo.upcase
-    url = "http://www.orce.uni.edu.pe/detaalu.php?id=#{cod}&op=detalu"
-
-    page = agent.get url  
-
-    a = []
-    i = 0
-    p = [7, 10, 13]
-    page.parser.css("tr td").each do |f|
-      (a << f.text) if p.include? i+=1
-    end
-    b = page.parser.css("img")[3]['src']
-    b = "http://www.orce.uni.edu.pe/" + b
-    a<<b
-    a
-  end
+  #http://www.orce.uni.edu.pe/recordNotas.php?op=notas&tipo=Practicas&codcur=GP102&facul=I&codsec=V
 
   def cursos codigo, password
   	cursos = Hash.new{ |a, b| a[b] = Hash.new { |hash, key| hash[key] =Array.new  } }
@@ -80,9 +61,14 @@ class ApplicationController < ActionController::Base
     end
     cursos
   end
+  public
   def valid? params
+    param = { "txtcla" => params[:password], "txtusu" => params[:codigo]}
     url = URI('http://www.orce.uni.edu.pe/logeo.php')
-    res = Net::HTTP.post_form url, params
-    res.body =~ /Error/ ? true:false
+    res = Net::HTTP.post_form url, param
+    if res.body =~ /Error/ 
+      return false
+    end 
+    true
   end
 end
