@@ -5,6 +5,9 @@ else
 	ENV['facebook-id'] = "478281898863951"
 	ENV['facebook-secret'] = "f7885011357c9e69d0b0b20b4bea4a63"
 end
+#Si ocurre el sgt error Koala::Facebook::APIError 
+#HTTP 500: Response body: {"error":{"message":"No node specified","type":"Exception"
+#falta especificar los permisos
 
 Rails.application.config.middleware.use OmniAuth::Builder do
 

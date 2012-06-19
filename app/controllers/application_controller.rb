@@ -80,7 +80,11 @@ class ApplicationController < ActionController::Base
   end
 
   def facebook_app
-    @facebook_app 
+    if session[:uid]
+      @facebook_app = true
+    else
+      @facebook_app = false
+    end
   end
 
   def user_from_signed_request signed_request
@@ -91,7 +95,6 @@ class ApplicationController < ActionController::Base
     info = graph.get_object( uid )
     image = graph.get_picture( uid )
     # fql = graph.fql_query("SELECT name, email FROM user WHERE uid=#{signed_request["user_id"]}")
-    @facebook_app = true
     user = User.find_by_provider_and_uid( "facebook", uid) || User.create_from_app(uid, info["name"], image, info["email"])
   end
 end

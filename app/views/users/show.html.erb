@@ -13,7 +13,7 @@
 		</div>
 	<% end %>
 <% end %>
-<% if facebook_app == nil %>
+<% unless facebook_app %>
 <div data-role="navbar">
 	<ul>
 		<li><%= link_to 'Destroy session', @user, confirm: 'Are you sure?', method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>

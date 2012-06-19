@@ -65,6 +65,7 @@ class UsersController < ApplicationController
   def destroy
     session[:user_id] = nil
     @user = User.find(params[:id])
+    @info = @user.info.destroy
     @user.destroy
 
     respond_to do |format|
