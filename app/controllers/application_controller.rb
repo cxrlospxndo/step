@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  helper_method :current_user, :facebook_app
   #http://www.orce.uni.edu.pe/recordNotas.php?op=notas&tipo=Practicas&codcur=GP102&facul=I&codsec=V
 
   def cursos codigo, password
@@ -70,5 +71,27 @@ class ApplicationController < ActionController::Base
       return false
     end 
     true
+  end
+
+  private
+  
+  def current_user
+    @current_user ||= User.find( session[:user_id] ) if session[:user_id]
+  end
+
+  def facebook_app
+    @facebook_app 
+  end
+
+  def user_from_signed_request signed_request
+    oauth = Koala::Facebook::OAuth.new(ENV['facebook-id'], ENV['facebook-secret'], "/auth/facebook/callback")
+    signed_request = oauth.parse_signed_request( signed_request ) 
+    uid = signed_request["user_id"]
+    graph = Koala::Facebook::API.new(signed_request["oauth_token"])
+    info = graph.get_object( uid )
+    image = graph.get_picture( uid )
+    # fql = graph.fql_query("SELECT name, email FROM user WHERE uid=#{signed_request["user_id"]}")
+    @facebook_app = true
+    user = User.find_by_provider_and_uid( "facebook", uid) || User.create_from_app(uid, info["name"], image, info["email"])
   end
 end

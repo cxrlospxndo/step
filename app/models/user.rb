@@ -24,6 +24,24 @@ class User < ActiveRecord::Base
     info.ciclo = page.parser.xpath('//td[@bgcolor="#ffffff"]').first.text[1].to_i - 1
     info.pic = "http://www.orce.uni.edu.pe/" + page.parser.css("img")[3]['src']
     info.save
-   end
+  end
 
+  def self.create_with_omniauth (auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"]
+      user.image = (auth["info"]["image"] || "default.png")
+      user.email = auth["info"]["email"]
+    end
+  end
+  def self.create_from_app uid, name, image, email
+    create! do |user|
+      user.provider = "facebook"
+      user.uid = uid
+      user.name = name
+      user.image = (image || "default.png")
+      user.email = email
+    end   
+  end
 end

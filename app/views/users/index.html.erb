@@ -1,13 +1,17 @@
-
 <ul data-role="listview">
   <% @users.each do |user| %>
+  	<% if user.codigo %>
       <li><img src=<%=user.info.pic%> alt='<%= user.codigo %>'><h3><%= user.info.fullname %></h3><p><%=user.codigo%></p></li>
+     <% end %>
   <% end %>
 </ul>
 <br />
-
 <footer data-role="navbar">
-  <ul>
-    <li><%= link_to 'Log in', new_user_path, 'data-role' => 'button', 'data-icon' => 'plus', 'data-theme' => 'b' %></li>
-  </ul>
-</footer>
+	<ul>
+	<% if current_user %>
+	    <li><%= link_to 'Mis notas', current_user, 'data-role' => 'button', 'data-icon' => 'star', 'data-theme' => 'b' %></li>
+	<% else %>
+	    <li><%= link_to 'Log in', new_user_path, 'data-role' => 'button', 'data-icon' => 'plus', 'data-theme' => 'b' %></li>
+	<% end %>
+	</ul>
+</footer>	

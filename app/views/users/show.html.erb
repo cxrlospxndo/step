@@ -13,9 +13,11 @@
 		</div>
 	<% end %>
 <% end %>
+<% if facebook_app == nil %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Edit', edit_user_path(@user), 'data-role' => 'button', 'data-icon' => 'gear', 'data-theme' => 'a' %></li>
-		<li><%= link_to 'Destroy', @user, confirm: 'Are you sure?', method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b', 'data-rel' => 'dialog' %></li>
+		<li><%= link_to 'Destroy session', @user, confirm: 'Are you sure?', method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	</ul>
 </div>
+<% end %>
+

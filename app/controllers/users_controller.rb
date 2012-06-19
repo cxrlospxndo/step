@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
 
   def index
@@ -10,13 +11,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @info = @user.info
-    @cur = cursos @user.codigo, @user.password
+    if current_user.id = params[:id]
+      @user = User.find(params[:id])
+      @info = @user.info
+      @cur = cursos @user.codigo, @user.password
 
-    respond_to do |format|
-      format.html 
-      format.json { render json: @user, :only =>[:codigo, :created_at] }
+      respond_to do |format|
+        format.html 
+        format.json { render json: @user, :only =>[:codigo, :created_at], :include => :info }
+      end
     end
   end
 
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
     if valid? params[:user]
       @user = User.find_or_create_by_codigo_and_password(params[:user][:codigo].upcase, params[:user][:password])
       @info = @user.build_info if @user.info == nil
+      session[:user_id] = @user.id
       redirect_to @user
     else
       redirect_to new_user_path
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        @info = @user.build_info if @user.info == nil
         format.html { redirect_to @user } 
         format.json { head :no_content }
       else
@@ -58,6 +63,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
     @user = User.find(params[:id])
     @user.destroy
 
