@@ -22,37 +22,39 @@ class ApplicationController < ActionController::Base
 
       page3 = page2.links.first.click   # practicas
       page4 = page2.links[1].click      # examenes
-      ex = []
+      examenes = []
 
       page4.parser.css("tr td").each do |cont|
-        ex << cont.content
+        examenes << cont.content
       end
 
-      examenes = Hash.new{ |a,b| a[b]= Array.new }
-      ind = (ex.size - 1)/4
+      #examenes = Hash.new{ |a,b| a[b]= Array.new }
+      ind = (examenes.size - 1)/4
 
       (1..ind).each do |i|
         y = i * 4
         x = y - 2
         z = x - 1
-        examenes[ex[z][0..-2]] = ex[x..y]
+        #examenes[ex[z][0..-2]] = ex[x..y]
+        cursos[examenes[z][0..-2]]['examenes'] = examenes[x..y]
       end
 
-      a =[]
+      practicas =[]
 
       page3.parser.xpath("//tr/td").each do |cont|
-        a << cont.content
+        practicas << cont.content
       end
 
-      periodo = a[0]
+      periodo = practicas[0]
 
-      index = (a.size - 1)/7
+      index = (practicas.size - 1)/7
       (1..index).each do |i|
         y = i * 7
         x = y - 5
         z = x - 1
-        cod = a[z][0..-2]
-        cursos[cod] = { 'practicas' => a[ x..y], 'examenes' => examenes[cod] }
+        #cod = a[z][0..-2]
+        #cursos[cod] = { 'practicas' => a[ x..y], 'examenes' => examenes[cod] }
+        cursos[practicas[z][0..-2]]['practicas'] = practicas[x..y]
       end
 
       # puts periodo
