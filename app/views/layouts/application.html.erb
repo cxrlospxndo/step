@@ -35,8 +35,13 @@
       </ul>
     </nav>
   </header>
+  <article>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </article>
   <article data-role="content"> 
-    <%= yield %>   
+    <%= yield %>  
   </article>
 </section>
 

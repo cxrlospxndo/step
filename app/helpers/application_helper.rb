@@ -11,7 +11,10 @@ module ApplicationHelper
 	   	html
 	end
 	def dar_formato number
-			require 'active_support/core_ext/integer/inflections'
-			number.to_i.ordinalize
+			index = number.to_i - 1 
+			orden = %w[1ero 2do 3ro 4to 5to 6to 7mo 8vo 9no 10mo]
+			orden[index] 
+			# require 'active_support/core_ext/integer/inflections'
+			# number.to_i.ordinalize
 	end
 end

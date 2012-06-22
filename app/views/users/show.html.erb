@@ -3,6 +3,7 @@
 	<li><%= @info.esp %></li>
 	<li>Ciclo relativo : <%= dar_formato @info.ciclo %></li>
 </ul>
+<!-- <p><%= @ses.class %></p> -->
 <br/>
 <% if @cur.size != nil %>
 	<% @cur.each do |key, value|%>
@@ -16,7 +17,7 @@
 <% unless facebook_app %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Destroy session', @user, confirm: 'Are you sure?', method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+		<li><%= link_to 'Sign out', @user, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	</ul>
 </div>
 <% end %>

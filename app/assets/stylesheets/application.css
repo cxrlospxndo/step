@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
 */
+#flash_notice{
+	background-color: #EE2A46;
+	color: white;
+	text-align: center;
+}
