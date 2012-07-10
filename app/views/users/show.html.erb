@@ -1,13 +1,14 @@
 <ul data-role="listview" data-theme="c">
-	<li><%= @info.fullname %></li>
-	<li><%= @info.esp %></li>
-	<li>Ciclo relativo : <%= dar_formato @info.ciclo %></li>
+	<li><img src="<%= @info.pic %>" class="ui-li-thumb">
+	<h3><%= @info.fullname %></h3>
+	<p><%= @info.esp %></p>
+	<p>Ciclo relativo : <%= dar_formato @info.ciclo %></p></li>
 </ul>
 <!-- <p><%= @ses.class %></p> -->
 <br/>
 <% if @cur.size != nil %>
 	<% @cur.each do |key, value|%>
-		<div data-role="collapsible">
+		<div data-role="collapsible" data-content-theme="a">
 		   <h3><%= key %></h3>
 		   <p><%= show_me "practicas",value %></p>
 		   <p><%= show_me "examenes", value %></p>
