@@ -16,3 +16,11 @@
 	color: white;
 	text-align: center;
 }
+
+.ui-grid-a .ui-block-a { width: 35%; }
+.ui-grid-a .ui-block-b { width: 65%; } 
+
+a {
+  color: #01151C;
+  text-decoration:none;
+}

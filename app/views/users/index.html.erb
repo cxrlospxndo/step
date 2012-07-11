@@ -1,12 +1,3 @@
-<!-- <ul data-role="listview">
-  <% @users.each do |user| %>
-  	<% if user.codigo %>
-      <li><img src=<%=user.info.pic%> alt='<%= user.codigo %>'><h3><%= user.info.fullname %></h3><p><%=user.codigo%></p></li>
-     <% end %>
-  <% end %>
-</ul>
-<br /> -->
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -15,12 +6,16 @@
   js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=250953895009540";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<!-- <h3>Si te gusto esta app o tienes una idea de como mejorarla hazmelo saber en los comentarios.</h3>
+ -->
+ <p>Repositorio de la app en <a href="https://github.com/cxrlospxndo/step" target="_blank">github</a>.</p>
 
 
-<div class="ui-grid-a">
-	<div class="ui-block-a fb-like" data-href="http://orce.herokuapp.com/" data-send="true" data-width="450" data-show-faces="true"></div>
-	<div class="ui-block-b fb-comments" data-href="http://orce.herokuapp.com/" data-num-posts="7" data-width="470"></div>
-</div>
+<div class="fb-like" data-href="http://orce.herokuapp.com/" data-send="true" data-width="450" data-show-faces="true"></div>
+
+<br/>	
+<div class="fb-comments" data-href="http://orce.herokuapp.com/" data-num-posts="5" data-width="470"></div>
+
 
 <footer data-role="navbar">
 	<ul>
