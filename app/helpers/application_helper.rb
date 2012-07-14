@@ -19,11 +19,11 @@ module ApplicationHelper
 	end
 	def pretty curso
 		curso[-1]=""
-		articulos=%w[de la con y ii i iii a un ]
+		articulos=%w[de la con y ii i iii a un del]
 		ans = []
 		curso.downcase.split.each do |c|
 			if articulos.include? c
-				ans << c.gsub(/i/,'I').gsub(/ii/,'II').gsub(/iii/,'III')
+				ans << c.gsub(/i/,'I').gsub(/ii/,'II').gsub(/iii/,'III').gsub(/Ñ/, "ñ")
 			else
 				ans << c.titleize
 			end
