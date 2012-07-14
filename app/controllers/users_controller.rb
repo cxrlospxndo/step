@@ -2,11 +2,8 @@
 class UsersController < ApplicationController
 
   def index
-    #@users = User.all
-
     respond_to do |format|
       format.html 
-      #format.json { render json: @users, :only =>[:codigo]}
     end
   end
 
@@ -16,8 +13,8 @@ class UsersController < ApplicationController
     #raise @user.to_yaml
     if session[:user_id] == @user.id
       @info = @user.info
-      @cur = cursos @user.codigo, @user.password
-      #@ses = session[:user_id]
+      #@cur = cursos @user.codigo, @user.password, v1.0
+      @cursos = tabla_notas_de @user.codigo, @user.password
       respond_to do |format|
         format.html 
         format.json { render json: @user, :only =>[:codigo, :created_at], :include => :info }

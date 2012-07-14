@@ -5,12 +5,11 @@
 	<p>Ciclo relativo : <%= dar_formato @info.ciclo %></p></li>
 </ul>
 <br/>
-<% if @cur.size != nil %>
-	<% @cur.each do |key, value|%>
+<% if @cursos.size != nil %>
+	<% @cursos.each do |c|%>
 		<div data-role="collapsible" data-content-theme="a">
-		   <h3><%= key %></h3>
-		   <p><%= show_me "practicas",value %></p>
-		   <p><%= show_me "examenes", value %></p>
+		   <h3><%= pretty(c[:curso])+" "+c[:codigo]+c[:seccion] %></h3>
+		   <%= c[:html] %>
 		</div>
 	<% end %>
 <% end %>
