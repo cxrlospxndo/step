@@ -32,11 +32,11 @@ class ApplicationController < ActionController::Base
 
       agent.get uri + "recordNotas.php?op=notas&tipo=Practicas&codcur=#{ans[:codigo]}&facul=I&codsec=#{ans[:seccion]}"
       pag_practicas = agent.page
-      ans[:html] = pag_practicas.body.html_safe
+      ans[:html] = pag_practicas.body.gsub(/font-weight: bold;/, "").html_safe
 
       agent.get uri + "recordNotas.php?op=notas&tipo=Teoria&codcur=#{ans[:codigo]}&facul=I&codsec=#{ans[:seccion]}"
       pag_examenes = agent.page
-      ans[:html] += pag_examenes.body.html_safe
+      ans[:html] += pag_examenes.body.gsub(/font-weight: bold;/, "").html_safe
 
       cursos << ans
     end
