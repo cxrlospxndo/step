@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
 	# def show_me eva, value
 
@@ -23,9 +24,9 @@ module ApplicationHelper
 		ans = []
 		curso.downcase.split.each do |c|
 			if articulos.include? c
-				ans << c.gsub(/i/,'I').gsub(/ii/,'II').gsub(/iii/,'III').gsub(/Ñ/, "ñ")
+				ans << c.gsub(/i/,'I').gsub(/ii/,'II').gsub(/iii/,'III')
 			else
-				ans << c.titleize
+				ans << c.titleize.gsub(/Ñ/, 'ñ')
 			end
 		end
 		ans.join(" ")
