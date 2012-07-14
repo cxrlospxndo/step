@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     cursos = []
     agent = Mechanize.new
     uri = "http://www.orce.uni.edu.pe/"
-    params = {"txtusu" => "20072531G", "txtcla" => "91424"}
+    params = {"txtusu" => codigo, "txtcla" => password}
     agent.post( uri + "logeo.php", params)
     agent.get uri + "recordNotas.php?op=cursos&flag=notas"
 
