@@ -21,10 +21,26 @@ a {
   color: #01151C;
   text-decoration:none;
 }
-.cabecera {
-	display: none;
+
+table th {
+	background-color: #387bbe;	
+	font-family: Helvetica, Verdana, sans-serif, Arial;
+	font-weight: bold;
+	font-size: 1em;
+	color: white;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 0px;
 }
-.fila {
-	color: #3E3E3E;
+table td {
+	font-family: Helvetica, Verdana, sans-serif, Arial;
 	font-weight: normal;
+	font-size: .9em;
+	color: #404040;
+	background-color: #B9B9B9;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	padding-right: 0px;
 }

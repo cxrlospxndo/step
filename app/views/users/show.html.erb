@@ -1,22 +1,48 @@
 <ul data-role="listview" data-theme="c">
-	<li><img src="<%= @info.pic %>" class="ui-li-thumb">
-	<h3><%= @info.fullname %></h3>
-	<p><%= @info.esp %></p>
-	<p>Ciclo relativo : <%= dar_formato @info.ciclo %></p></li>
+	<li>
+		<img src="<%= @info.pic %>" class="ui-li-thumb">
+		<h3><%= @info.fullname %></h3>
+		<p><%= @info.esp %></p>
+		<p>Ciclo relativo : <%= dar_formato @info.ciclo %></p>
+		<p><%= link_to "Notas en PDF", user_path(@user, format: "pdf"), target: "_blank"%></p>
+	</li>
 </ul>
 <br/>
 <% if @cursos.size != nil %>
 	<% @cursos.each do |c|%>
 		<div data-role="collapsible" data-content-theme="a">
-		   <h3><%= pretty(c[:curso])+" "+c[:codigo]+c[:seccion] %></h3>
-		   <%= c[:html] %>
+		   <h3><%= pretty_name(c[:curso])+" "+c[:codigo]+c[:seccion] %></h3>
+		   <table>
+		   	<tbody>
+		   	<tr>
+					<th>Tipo de Examen</th>
+					<th>Nota</th>
+					<th>Reclamo</th>
+					<th>%Desaprobados</th>
+				</tr>
+				<% c[:notas][:practicas].each do |row| %>
+					<tr>
+						<% row.each do |val| %>
+							<td><%=val%></td>
+						<% end %>
+					</tr>
+				<% end %>		
+				<% c[:notas][:examenes].each do |row| %>
+					<tr>
+						<% row.each do |val| %>
+							<td><%= val %></td>
+						<% end %>
+					</tr>
+				<% end %>
+				</tbody>
+		   </table>
 		</div>
 	<% end %>
 <% end %>
 <% unless facebook_app %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Sign out', @user, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+		<li><%= link_to 'Salir', @user, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	</ul>
 </div>
 <% end %>

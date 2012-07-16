@@ -8,16 +8,21 @@ class UsersController < ApplicationController
   end
 
   def show
-    
-    @user = User.find(params[:id])
+
+    @user = User.find(params[:id].upcase) #upcase para la letra del codigo
     #raise @user.to_yaml
     if session[:user_id] == @user.id
       @info = @user.info
-      #@cur = cursos @user.codigo, @user.password, v1.0
-      @cursos = tabla_notas_de @user.codigo, @user.password
+      @cursos = tabla_notas_de @user
       respond_to do |format|
         format.html 
         format.json { render json: @user, :only =>[:codigo, :created_at], :include => :info }
+        format.pdf do
+          pdf = UserPdf.new(@user, @cursos)
+          send_data pdf.render, filename: "#{@user.codigo}.pdf",
+                                type: "application/pdf",
+                                disposition: "inline"
+        end
       end
     else
       redirect_to root_path, notice: "Acceso denegado"

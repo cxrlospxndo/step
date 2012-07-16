@@ -3,6 +3,8 @@
 class User < ActiveRecord::Base
   has_one :info, :dependent => :destroy
   attr_accessible :codigo, :password
+  extend FriendlyId
+  friendly_id :codigo
   def build_info 
     agent = Mechanize.new
     cod = codigo.upcase 
