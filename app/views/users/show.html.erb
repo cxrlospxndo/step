@@ -1,10 +1,14 @@
 <ul data-role="listview" data-theme="c">
 	<li>
 		<img src="<%= @info.pic %>" class="ui-li-thumb">
-		<h3><%= @info.fullname %></h3>
-		<p><%= @info.esp %></p>
-		<p>Ciclo relativo : <%= dar_formato @info.ciclo %></p>
-		<p><%= link_to "Notas en PDF", user_path(@user, format: "pdf"), target: "_blank"%></p>
+		<h3 class="ui-li-heading"><%= @info.fullname %></h3>
+		<p class="ui-li-desc"><%= @info.esp %></p>
+		<p class="ui-li-desc">Ciclo relativo : <%= dar_formato @info.ciclo %></p>
+		<p>Ver notas en 
+			<a href="<%= user_path(@user, format: "pdf") %>"  data-ajax="false">PDF</a> 
+			| <a href="<%= user_path(@user, format: "csv") %>"  data-ajax="false">CSV</a> 
+			| <a href="<%= user_path(@user, format: "xls") %>"  data-ajax="false">XLS</a>
+		</p>
 	</li>
 </ul>
 <br/>
@@ -20,18 +24,24 @@
 					<th>Reclamo</th>
 					<th>%Desaprobados</th>
 				</tr>
-				<% c[:notas][:practicas].each do |row| %>
-					<tr>
-						<% row.each do |val| %>
-							<td><%=val%></td>
-						<% end %>
+				<% c[:notas][:practicas].each_with_index do |row, index| %>
+					
+					<tr id="row-<%=index%>">						
+						<td><%= row[0] %></td>
+						<% klass = "red" if row[1].to_i < 10 && row[1]!="NSP" %>
+						<td class="<%= klass %>"><%= row[1] %></td>
+						<td><%= row[2] %></td>
+						<td><%= row[3] %></td>
 					</tr>
 				<% end %>		
-				<% c[:notas][:examenes].each do |row| %>
-					<tr>
-						<% row.each do |val| %>
-							<td><%= val %></td>
-						<% end %>
+				<% c[:notas][:examenes].each_with_index do |row, index| %>
+
+					<tr id="row-x-<%=index%>">						
+						<td><%= row[0] %></td>
+						<% klass = "red" if row[1].to_i < 10 && row[1]!="NSP" %>
+						<td class="<%= klass %>"><%= row[1] %></td>
+						<td><%= row[2] %></td>
+						<td><%= row[3] %></td>
 					</tr>
 				<% end %>
 				</tbody>
@@ -39,11 +49,9 @@
 		</div>
 	<% end %>
 <% end %>
-<% unless facebook_app %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Salir', @user, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+		<li><%= link_to 'Salir', signout_path, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	</ul>
 </div>
-<% end %>
 

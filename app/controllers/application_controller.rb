@@ -2,6 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :facebook_app
+  URL = "http://www.orce.uni.edu.pe/"
   # http://www.orce.uni.edu.pe/recordNotas.php?op=cursos&flag=notas
   # http://www.orce.uni.edu.pe/recordNotas.php?op=notas&tipo=Teoria&codcur=GP102&facul=I&codsec=V
   # http://www.orce.uni.edu.pe/recordNotas.php?op=notas&tipo=Practicas&codcur=GP102&facul=I&codsec=V
@@ -10,10 +11,9 @@ class ApplicationController < ActionController::Base
     cursos = []
 
     agent = Mechanize.new
-    uri = "http://www.orce.uni.edu.pe/"
     params = {"txtusu" => user.codigo, "txtcla" => user.password}
-    agent.post( uri + "logeo.php", params)
-    agent.get uri + "recordNotas.php?op=cursos&flag=notas"
+    agent.post( URL + "logeo.php", params)
+    agent.get URL + "recordNotas.php?op=cursos&flag=notas"
     pag = agent.page
     a=[]
     pag.parser.css('tr.fila td').each do |f|
@@ -40,15 +40,14 @@ class ApplicationController < ActionController::Base
   end
 
   def obtener_notas_de evaluacion, codigo, seccion, agent
-    uri = "http://www.orce.uni.edu.pe/"
-    agent.get uri+"recordNotas.php?op=notas&tipo=#{evaluacion}&codcur=#{codigo}&facul=I&codsec=#{seccion}"
+    agent.get URL+"recordNotas.php?op=notas&tipo=#{evaluacion}&codcur=#{codigo}&facul=I&codsec=#{seccion}"
     pag_evaluacion = agent.page
 
     evaluacion=[]
     pag_evaluacion.parser.css("tr td").each_slice(4) do |f|
       ans = []
       f.each do |c|
-         ans << c.content.gsub(/\u00a0/, '')
+         ans << c.content.gsub(/\u00a0/, '') #&nbsp
       end
       evaluacion<<ans
     end

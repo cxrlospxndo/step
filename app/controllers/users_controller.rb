@@ -17,6 +17,8 @@ class UsersController < ApplicationController
       respond_to do |format|
         format.html 
         format.json { render json: @user, :only =>[:codigo, :created_at], :include => :info }
+        format.csv { send_data @user.to_csv @cursos, "" }
+        format.xls { render text: @user.to_csv(@cursos, "\t") }
         format.pdf do
           pdf = UserPdf.new(@user, @cursos)
           send_data pdf.render, filename: "#{@user.codigo}.pdf",

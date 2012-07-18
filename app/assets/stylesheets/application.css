@@ -26,12 +26,13 @@ table th {
 	background-color: #387bbe;	
 	font-family: Helvetica, Verdana, sans-serif, Arial;
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 0.9em;
 	color: white;
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-left: 8px;
-	padding-right: 0px;
+	padding-right: 8px;
+	text-align: center;
 }
 table td {
 	font-family: Helvetica, Verdana, sans-serif, Arial;
@@ -42,5 +43,6 @@ table td {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-left: 8px;
-	padding-right: 0px;
+	padding-right: 8px;
+	text-align: center;
 }

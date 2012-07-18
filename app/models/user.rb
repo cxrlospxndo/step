@@ -46,4 +46,22 @@ class User < ActiveRecord::Base
       user.email = email
     end   
   end
+  def to_csv cursos, f
+    CSV.generate(f) do |csv|
+      csv << [codigo, info.fullname]
+      csv << []
+      cursos.each do |c|
+        csv << [c[:curso]+c[:codigo]+c[:seccion]]
+        csv << ["Tipo de Examen", "Nota", "Reclamo", "%Desaprobados"]
+        c[:notas][:practicas].each do |row|
+          csv << row
+        end  
+        c[:notas][:examenes].each do |row|
+          csv << row
+        end
+        csv << []
+      end
+    end
+  end
+
 end
