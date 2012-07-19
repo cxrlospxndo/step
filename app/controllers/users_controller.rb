@@ -24,8 +24,8 @@ class UsersController < ApplicationController
                                 filename: "#{@user.codigo}.csv",
                                 type: "application/csv",
                                 disposition: "attachment"}
-        format.xls { send_data @user.to_csv(@cursos, "\t"),
-                                filename: "#{@use.codigo}.xls",
+        format.xls { send_data (@user.to_csv(@cursos, "\t")),
+                                filename: "#{@user.codigo}.xls",
                                 type: "application/xls",
                                 disposition: "attachment"}
         format.pdf do
