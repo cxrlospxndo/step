@@ -16,14 +16,23 @@ class UsersController < ApplicationController
       @cursos = tabla_notas_de @user
       respond_to do |format|
         format.html 
-        format.json { render json: @user, :only =>[:codigo, :created_at], :include => :info }
-        format.csv { send_data @user.to_csv @cursos, "" }
-        format.xls { render text: @user.to_csv(@cursos, "\t") }
+        format.xml { render xml: @user, only: [:codigo, :created_at], 
+                                          include: { info: {only: [:fullname, :pic, :esp]}}}
+        format.json { render json: @user, only: [:codigo, :created_at], 
+                                          include: { info: {only: [:fullname, :pic, :esp]}}}
+        format.csv { send_data (@user.to_csv @cursos, ""), 
+                                filename: "#{@user.codigo}.csv",
+                                type: "application/csv",
+                                disposition: "attachment"}
+        format.xls { send_data @user.to_csv(@cursos, "\t"),
+                                filename: "#{@use.codigo}.xls",
+                                type: "application/xls",
+                                disposition: "attachment"}
         format.pdf do
           pdf = UserPdf.new(@user, @cursos)
           send_data pdf.render, filename: "#{@user.codigo}.pdf",
                                 type: "application/pdf",
-                                disposition: "inline"
+                                disposition: "attachment"
         end
       end
     else
