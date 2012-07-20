@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       respond_to do |format|
         format.html 
         format.xml { render xml: @user, only: [:codigo, :created_at], 
-                                          include: { info: {only: [:fullname, :pic, :esp]}}}
+                                          include: {info: {only: [:fullname, :pic, :esp]}}}
         format.json { render json: @user, only: [:codigo, :created_at], 
                                           include: { info: {only: [:fullname, :pic, :esp]}}}
         format.csv { send_data (@user.to_csv @cursos, ""), 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
                                 disposition: "attachment"}
         format.xls { send_data (@user.to_csv(@cursos, "\t")),
                                 filename: "#{@user.codigo}.xls",
-                                type: "application/xls",
+                                type: "application/vnd.ms-excel",
                                 disposition: "attachment"}
         format.pdf do
           pdf = UserPdf.new(@user, @cursos)
