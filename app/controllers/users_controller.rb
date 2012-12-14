@@ -25,8 +25,8 @@ class UsersController < ApplicationController
                                 type: "application/csv",
                                 disposition: "attachment"}
         format.xls { send_data (@user.to_csv(@cursos, "\t")),
-                                filename: "#{@user.codigo}.xls",
-                                type: "application/vnd.ms-excel",
+                                filename: "#{@user.codigo}.xls", #.XLS
+                                type: "application/vnd.ms-excel", #application/octet-stream
                                 disposition: "attachment"}
         format.pdf do
           pdf = UserPdf.new(@user, @cursos)

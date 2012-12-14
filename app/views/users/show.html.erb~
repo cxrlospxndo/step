@@ -4,13 +4,14 @@
 		<h3 class="ui-li-heading"><%= @info.fullname %></h3>
 		<p class="ui-li-desc"><%= @info.esp %></p>
 		<p class="ui-li-desc">Ciclo relativo : <%= dar_formato @info.ciclo %></p>
-		<p>Reporte de notas : 
+		<p>Ver notas en : 
 				<a href="<%= user_path(@user, format: "pdf") %>"  data-ajax="false">PDF</a> 
 			| <a href="<%= user_path(@user, format: "csv") %>"  data-ajax="false">CSV</a> 
 			| <a href="<%= user_path(@user, format: "xls") %>"  data-ajax="false">XLS</a>
 			<!--
 			json: http://orce.herokuapp.com/users/tu_codigo_con_letra.json 
-			xml: http://orce.herokuapp.com/users/tu_codigo_con_letra.xml :view page source
+			xml: http://orce.herokuapp.com/users/tu_codigo_con_letra.xml
+			view page source
 			-->
 		</p>
 	</li>
