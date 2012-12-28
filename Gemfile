@@ -22,6 +22,7 @@ gem 'koala'
 gem 'jquery-rails'
 gem 'friendly_id', "~> 4.0.7"
 gem 'prawn'
+gem 'newrelic_rpm'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
