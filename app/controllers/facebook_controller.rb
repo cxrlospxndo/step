@@ -1,5 +1,5 @@
 class FacebookController < ApplicationController
-
+  skip_before_filter  :verify_authenticity_token
 	def create
 
 		@user = user_from_signed_request params[:signed_request] 
