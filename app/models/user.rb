@@ -13,18 +13,18 @@ class User < ActiveRecord::Base
     page = agent.get url  
 
     a = []
-    page.parser.css("tr td").each do |f|
+    page.parser.css('tr td').each do |f|
       a << f.text
     end
     info = Info.new
     info.user_id = id
-    info.fullname = a[6].split("-").join(" ").downcase.titleize
+    info.fullname = a[6].split('-').join(' ').downcase.titleize
     info.facultad = a[9].downcase.titleize.gsub(/Í/, 'í').gsub(/De/, 'de').gsub(/Y/, 'y')
     info.esp = a[12].downcase.titleize.gsub(/Í/, 'í').gsub(/De/, 'de')
     info.situacion = a[15].downcase
     info.medisc = a[18].downcase
-    info.ciclo = page.parser.xpath('//td[@bgcolor="#ffffff"]').first.text[1].to_i - 1
-    info.pic = "http://www.orce.uni.edu.pe/" + page.parser.css("img")[3]['src']
+    info.ciclo = page.parser.xpath('//td[@bgcolor!="#ffffff"]').last.text.gsub(/[.]/, '').to_i rescue ' '
+    info.pic = 'http://www.orce.uni.edu.pe/' + page.parser.css('img')[3]['src']
     info.save
   end
 

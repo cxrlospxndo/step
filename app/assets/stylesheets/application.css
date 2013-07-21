@@ -18,13 +18,16 @@
 }
 
 a {
-  color: #01151C;
-  text-decoration:none;
+    text-decoration:none;
+    font-family: serif;
+}
+a:hover {
+    color:gray;
 }
 
 table th {
 	background-color: #387bbe;	
-	font-family: Helvetica, Verdana, sans-serif, Arial;
+	font-family: Helvetica, Verdana, sans-serif, Arial,serif;
 	font-weight: bold;
 	font-size: 0.9em;
 	color: white;
@@ -35,7 +38,7 @@ table th {
 	text-align: center;
 }
 table td {
-	font-family: Helvetica, Verdana, sans-serif, Arial;
+	font-family: Helvetica, Verdana, sans-serif, Arial, serif;
 	font-weight: normal;
 	font-size: .9em;
 	color: #404040;
@@ -45,4 +48,42 @@ table td {
 	padding-left: 8px;
 	padding-right: 8px;
 	text-align: center;
+}
+article {
+    text-align: center;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+article form {
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#user_codigo, #user_password {
+    text-align: center;
+}
+p {
+    letter-spacing: 1.33px;
+}
+#descr {
+    font-family: "Anonymous Pro", serif;
+    text-align: left;
+}
+#descl {
+    font-family: "Anonymous Pro", serif;
+    text-align: right;
+}
+#imgl {
+    text-align: left;
+}
+#imgr {
+
+    text-align: right;
+}
+em {
+    color: firebrick;
+    font-size: 120%;
+    font-family: serif;
 }

@@ -4,12 +4,12 @@
 		<h3 class="ui-li-heading"><%= @info.fullname %></h3>
 		<p class="ui-li-desc"><%= @info.esp %></p>
 		<p class="ui-li-desc">Ciclo relativo : <%= dar_formato @info.ciclo %></p>
-		<p>Reporte de notas : 
-				<a href="<%= user_path(@user, format: "pdf") %>"  data-ajax="false">PDF</a> 
-			| <a href="<%= user_path(@user, format: "csv") %>"  data-ajax="false">CSV</a> 
-			| <a href="<%= user_path(@user, format: "xls") %>"  data-ajax="false">XLS</a>
+		<p>Reporte de notas :
+				<a href="<%= user_path(@user, format: "pdf") %>"  data-ajax="false">pdf</a>
+			<!--| <a href="<%= user_path(@user, format: "csv") %>"  data-ajax="false">CSV</a> -->
+			| <a href="<%= user_path(@user, format: "xls") %>"  data-ajax="false">xls</a>
 			<!--
-			json: http://orce.herokuapp.com/users/tu_codigo_con_letra.json 
+			json: http://orce.herokuapp.com/users/tu_codigo_con_letra.json
 			xml: http://orce.herokuapp.com/users/tu_codigo_con_letra.xml :view page source
 			-->
 		</p>
@@ -19,14 +19,14 @@
 <% if @cursos.size != nil %>
 	<% @cursos.each do |c|%>
 		<div data-role="collapsible" data-content-theme="a">
-		   <h3><%= pretty_name(c[:curso])+" "+c[:codigo]+c[:seccion] %></h3>
+          <h3><%= pretty_name(c[:curso])+" "+c[:codigo]+c[:seccion] %></h3>
 		   <table>
 		   	<tbody>
 		   	<tr>
 					<th>Tipo de Examen</th>
 					<th>Nota</th>
 					<th>Reclamo</th>
-					<th>%Desaprobados</th>
+					<th>% Desap</th>
 				</tr>
 				<% c[:notas][:practicas].each_with_index do |row, index| %>
 					
@@ -55,7 +55,7 @@
 <% end %>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Salir', signout_path, confirm: "Quieres destruir tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+		<li><%= link_to 'Salir', signout_path, confirm: "Quieres cerrar tu session como #{@info.fullname}?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	</ul>
 </div>
 
