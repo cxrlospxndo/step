@@ -33,6 +33,7 @@
 <footer data-role="navbar">
 	<ul>
 	<% if current_user %>
+        <li><%= link_to 'Salir', signout_path, confirm: "Quieres cerrar tu session?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
 	    <li><%= link_to 'Mis notas', current_user, 'data-role' => 'button', 'data-icon' => 'star', 'data-theme' => 'b' %></li>
 	<% else %>
 	    <li><%= link_to 'Log in', '/login', 'data-role' => 'button', 'data-icon' => 'plus', 'data-theme' => 'b' %></li>
