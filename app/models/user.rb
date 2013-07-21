@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
-      user.image = (auth["info"]["image"] || "default.png")
-      user.email = auth["info"]["email"]
+      #user.image = (auth["info"]["image"] || "default.png")
+      #user.email = auth["info"]["email"]
     end
   end
   def self.create_from_app uid, name, image, email
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
       user.uid = uid
       user.name = name
       user.image = (image || "default.png")
-      user.email = email
+      #user.email = email
     end   
   end
   def to_csv cursos, f
