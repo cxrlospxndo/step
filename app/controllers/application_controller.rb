@@ -30,8 +30,9 @@ class ApplicationController < ActionController::Base
       ans[:curso] = curso[1]
       ans[:seccion] = curso[2]
 
-      practicas = obtener_notas_de "Practicas", ans[:codigo], ans[:seccion], agent
-      examenes = obtener_notas_de "Teoria", ans[:codigo], ans[:seccion], agent
+      fac = obtener_letra user.info.facultad
+      practicas = obtener_notas_de "Practicas", ans[:codigo], ans[:seccion], fac, agent
+      examenes = obtener_notas_de "Teoria", ans[:codigo], ans[:seccion], fac, agent
 
       ans[:notas] = { practicas: practicas, examenes: examenes}
       cursos << ans
@@ -39,8 +40,8 @@ class ApplicationController < ActionController::Base
     cursos
   end
 
-  def obtener_notas_de evaluacion, codigo, seccion, agent
-    agent.get URL+"recordNotas.php?op=notas&tipo=#{evaluacion}&codcur=#{codigo}&facul=I&codsec=#{seccion}"
+  def obtener_notas_de evaluacion, codigo, seccion, fac, agent
+    agent.get URL+"recordNotas.php?op=notas&tipo=#{evaluacion}&codcur=#{codigo}&facul=#{fac}&codsec=#{seccion}"
     pag_evaluacion = agent.page
 
     evaluacion=[]
@@ -53,6 +54,42 @@ class ApplicationController < ActionController::Base
     end
     evaluacion.delete_at(0)
     evaluacion
+  end
+  def obtener_letra fac
+    fac.upcase!
+    if fac =~ /SISTEMAS/ 
+      return 'I'
+    end
+    if fac =~ /URBANISMO/ 
+      return 'A'
+    end
+    if fac =~ /CIENCIAS/ 
+      return 'N'
+    end 
+    if fac =~ /AMBIENTAL/ 
+      return 'S'
+    end
+    if fac =~ /CIVIL/ 
+      return 'C'
+    end     
+    if fac =~ /SOCIALES/ 
+      return 'E'
+    end
+    if fac =~ /ELECTRÓNICA/ 
+      return 'L'
+    end
+    if fac =~ /MINERA/ 
+      return 'G'
+    end 
+    if fac =~ /MECÁNICA/ 
+      return 'M'
+    end
+    if fac =~ /NATURAL/ 
+      return 'P'
+    end  
+    if fac =~ /TEXTIL/ 
+      return 'Q'
+    end 
   end
 
   # 	cursos = Hash.new{ |a, b| a[b] = Hash.new { |hash, key| hash[key] =Array.new  } }
