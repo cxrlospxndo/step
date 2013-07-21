@@ -37,12 +37,12 @@ class User < ActiveRecord::Base
       #user.email = auth["info"]["email"]
     end
   end
-  def self.create_from_app uid, name, image, email
+  def self.create_from_app uid
     create! do |user|
       user.provider = "facebook"
       user.uid = uid
-      user.name = name
-      user.image = (image || "default.png")
+      #user.name = name
+      #user.image = (image || "default.png")
       #user.email = email
     end   
   end

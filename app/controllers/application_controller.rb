@@ -125,9 +125,9 @@ class ApplicationController < ActionController::Base
     signed_request = oauth.parse_signed_request( signed_request ) 
     uid = signed_request["user_id"]
     graph = Koala::Facebook::API.new(signed_request["oauth_token"])
-    info = graph.get_object( uid )
-    image = graph.get_picture( uid )
+    #info = graph.get_object( uid )
+    #image = graph.get_picture( uid )
     # fql = graph.fql_query("SELECT name, email FROM user WHERE uid=#{signed_request["user_id"]}")
-    user = User.find_by_provider_and_uid( "facebook", uid) || User.create_from_app(uid, info["name"], image, info["email"])
+    user = User.find_by_provider_and_uid( "facebook", uid) || User.create_from_app(uid)
   end
 end
