@@ -146,6 +146,9 @@ GEM
     unf (0.0.5)
       unf_ext
     unf_ext (0.0.5)
+    uni (0.0.8)
+      mechanize
+      nokogiri
     webrobots (0.0.13)
 
 PLATFORMS
@@ -165,3 +168,4 @@ DEPENDENCIES
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  uni

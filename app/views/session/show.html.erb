@@ -1,0 +1,56 @@
+<ul data-role="listview" data-theme="c">
+  <li>
+    <img src="<%= @data[:pic] %>" class="ui-li-thumb">
+    <h3 class="ui-li-heading"><%= @data[:nombre].mb_chars.titleize  %></h3>
+    <p class="ui-li-desc"><%= @data[:especialidad].mb_chars.titleize  %></p>
+    <p class="ui-li-desc">Ciclo relativo : <%= dar_formato @data[:ciclo_relativo] %></p>
+    <p>Reporte de notas :
+        <a href="<%= url_for :action=> 'show', :format => :xls %>"  data-ajax="false">xls</a> |
+        <a href="<%= url_for :action=> 'show', :format => :pdf %>"  data-ajax="false">pdf</a>
+    </p>
+  </li>
+</ul>
+<br/>
+<% if @notas.size != nil %>
+    <% @notas.each do |c|%>
+        <div data-role="collapsible" data-content-theme="a">
+          <h3><%= c[:curso].mb_chars.titleize.gsub(/-/, '')+' '+c[:codigo]+c[:seccion] %></h3>
+          <table>
+            <tbody>
+            <tr>
+              <th>Tipo de Examen</th>
+              <th>Nota</th>
+              <th>Reclamo</th>
+              <th>% Desap</th>
+            </tr>
+            <% c[:notas][:practicas].each_with_index do |row, index| %>
+
+                <tr id="row-<%=index%>">
+                  <td><%= row[0] %></td>
+                  <% klass = row[1].to_i < 10 && row[1]!= 'NSP' ? 'red':'aprob-nsp'%>
+                  <td class="<%= klass %>"><%= row[1] %></td>
+                  <td><%= row[2] %></td>
+                  <td><%= row[3] %></td>
+                </tr>
+            <% end %>
+            <% c[:notas][:examenes].each_with_index do |row, index| %>
+
+                <tr id="row-x-<%=index%>">
+                  <td><%= row[0] %></td>
+                  <% klass = row[1].to_i < 10 && row[1]!= 'NSP' ? 'red':'aprob-nsp'%>
+                  <td class="<%= klass %>"><%= row[1] %></td>
+                  <td><%= row[2] %></td>
+                  <td><%= row[3] %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+    <% end %>
+<% end %>
+<div data-role="navbar">
+  <ul>
+    <li><%= link_to 'Salir', signout_path, confirm: "Quieres cerrar tu session como #{@data[:nombre].mb_chars.titleize }?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+  </ul>
+</div>
+

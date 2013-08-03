@@ -1,0 +1,33 @@
+<% if current_user %>
+    <h3>Deseas recargar tus datos?</h3>
+    <%= form_tag('/login') do |f| %>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <%= label_tag :codigo %>
+          <%= text_field_tag :codigo, session[:codigo], 'placeholder' => 'codigo', 'required' => "required"%>
+        </div>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <%= label_tag :password %>
+          <%= password_field_tag :password, session[:password], 'placeholder' => 'password', 'required' => "required" %>
+        </div>
+
+        <div data-role="fieldcontain" class="actions">
+          <%= submit_tag "Reload my Data"%>
+        </div>
+    <% end %>
+<% else %>
+    <h1>Orce</h1>
+    <%= form_tag('/login') do |f| %>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <%= label_tag :codigo %>
+          <%= text_field_tag :codigo, nil, 'placeholder' => 'codigo', 'required' => "required"%>
+        </div>
+        <div data-role="fieldcontain" class="ui-hide-label">
+          <%= label_tag :password %>
+          <%= password_field_tag :password, nil, 'placeholder' => 'password', 'required' => "required" %>
+        </div>
+
+        <div data-role="fieldcontain" class="actions">
+          <%= submit_tag "Log in"%>
+        </div>
+    <% end %>
+<% end %>

@@ -1,10 +1,11 @@
 Step::Application.routes.draw do
-  resources :users
   match "/auth/:provider/callback" => "facebook#create"
   match "/auth/failure" => "facebook#failure"
   match "/facebook" => "facebook#create"
-  root to: "users#index"
-  match "/signout" => "sessions#destroy", :as => :signout
-  match '/login' => 'users#new', :as => :login
+  root to: 'sample#main'
+  get '/login' => 'session#new', :as => :login
+  post '/login' => 'session#create', :as => :login
+  match '/signout' => 'session#destroy', :as => :signout
   match '/sample' => 'sample#index', :as => :sample
+  match '/notas' => 'session#show'
 end

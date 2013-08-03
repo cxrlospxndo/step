@@ -15,7 +15,7 @@
   <meta property="og:image:height" content="200" />
   <meta property="og:image:secure_url" content="https://orce.herokuapp.com/logo.png" />
   <meta property="fb:admins" content="1389194013,1434832659"/>
-  <meta property="og:description" content= "Entra a la Orce por el facebook!"/>
+  <meta property="og:description" content= "responsive web design"/>
   <link rel="shortcut icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,7 +25,6 @@
 
 <section id ="home" data-role="page">
   <header data-role="header">
-    <!-- <h1>Step</h1> -->
     <nav data-role="navbar">
       <ul>
         <li><%= link_to "Home", root_path, 'data-icon' => 'home', 'data-ajax' => 'false' %></li>
@@ -38,7 +37,7 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
   </article>
-  <article data-role="content"> 
+  <article data-role="content">
     <%= yield %>  
   </article>
       

@@ -12,6 +12,7 @@ end
 gem 'jquery-rails'
 gem 'mechanize'
 gem 'nokogiri'
+gem 'uni'
 
 #gem 'omniauth-twitter'
 gem 'omniauth-facebook'
