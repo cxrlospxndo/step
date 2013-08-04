@@ -1,6 +1,5 @@
 #encoding: utf-8
 module ApplicationHelper
-
 	def dar_formato number
     @orden = %w[1ero 2do 3ro 4to 5to 6to 7mo 8vo 9no 10mo]
     @orden[number.to_i - 1]
@@ -18,7 +17,7 @@ module ApplicationHelper
 				ans << c.titleize.gsub(/Ñ/, 'ñ')
 			end
 		end
-		ans.join(" ")
+		ans.join(' ')
 	end
   def self.to_csv data, notas, f
     CSV.generate(f) do |csv|
@@ -37,4 +36,5 @@ module ApplicationHelper
       end
     end
   end
+
 end
