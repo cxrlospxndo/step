@@ -2,7 +2,6 @@
 module ApplicationHelper
 
 	def dar_formato number
-    number.strip
     @orden = %w[1ero 2do 3ro 4to 5to 6to 7mo 8vo 9no 10mo]
     @orden[number.to_i - 1]
 		# require 'active_support/core_ext/integer/inflections'

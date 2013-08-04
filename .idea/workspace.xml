@@ -2,29 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9c63054-9ecd-4c25-b005-f616ba942144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/sample/data.html.erb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/facebook_64.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sample/index.html.erb" afterPath="$PROJECT_DIR$/app/views/sample/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/session/new.html.erb" afterPath="$PROJECT_DIR$/app/views/session/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sample_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sample_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/secret_token.rb" afterPath="$PROJECT_DIR$/config/initializers/secret_token.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/session_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/session_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/session_store.rb" afterPath="$PROJECT_DIR$/config/initializers/session_store.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/session/show.html.erb" afterPath="$PROJECT_DIR$/app/views/session/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/step.iml" afterPath="$PROJECT_DIR$/.idea/step.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sample/data.html.erb" afterPath="$PROJECT_DIR$/app/views/sample/data.html.erb" />
     </list>
     <ignored path="step.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375576899857" ignored="false" />
-    <file path="/show.html.erb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375580394384" ignored="false" />
+    <file path="/Dummy.txt" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375586950676" ignored="false" />
+    <file path="/show.html.erb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375586784980" ignored="false" />
     <file path="/routes.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375583824403" ignored="false" />
     <file path="/index.html.erb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375582758463" ignored="false" />
     <file path="/application.css" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375581923067" ignored="false" />
@@ -39,7 +24,7 @@
     <file path="/Gemfile" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375501177038" ignored="false" />
     <file path="$PROJECT_DIR$/../uni/spec/lib/uni_spec.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375552083813" ignored="false" />
     <file path="/uni_spec.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375552082121" ignored="false" />
-    <file path="$PROJECT_DIR$/../uni/lib/uni/public_info.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375584839139" ignored="false" />
+    <file path="$PROJECT_DIR$/../uni/lib/uni/public_info.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375586963704" ignored="false" />
     <file path="/public_info.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375584838355" ignored="false" />
     <file path="/session_controller.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375582406722" ignored="false" />
     <file path="/application.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375502418551" ignored="false" />
@@ -59,7 +44,7 @@
     <file path="/session_store.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375576994809" ignored="false" />
     <file path="/secret_token.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375577857468" ignored="false" />
     <file path="/development.rb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375578254328" ignored="false" />
-    <file path="/data.html.erb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375586114496" ignored="false" />
+    <file path="/data.html.erb" changelist="e9c63054-9ecd-4c25-b005-f616ba942144" time="1375587628500" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +67,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/session/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="204" selection-end="204" vertical-scroll-proportion="-2.6666667">
+            <state line="12" column="5" selection-start="634" selection-end="634" vertical-scroll-proportion="-8.0">
               <folding />
             </state>
           </provider>
@@ -106,19 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="data.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/sample/data.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="41" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-13.333333">
+            <state line="10" column="39" selection-start="388" selection-end="388" vertical-scroll-proportion="0.31141868">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_helper.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="16" selection-start="83" selection-end="83" vertical-scroll-proportion="0.116504855">
+            <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +133,6 @@
         <option value="$PROJECT_DIR$/config/initializers/session_store.rb" />
         <option value="$PROJECT_DIR$/config/initializers/secret_token.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/views/session/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/controllers/session_controller.rb" />
@@ -156,8 +140,9 @@
         <option value="$PROJECT_DIR$/app/views/session/new.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sample_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/sample/data.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/session/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/sample/data.html.erb" />
       </list>
     </option>
   </component>
@@ -383,6 +368,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="step" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="step" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -740,13 +747,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/mime_types.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/secret_token.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="58" selection-start="382" selection-end="382" vertical-scroll-proportion="0.18151261">
@@ -803,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/session/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="204" selection-end="204" vertical-scroll-proportion="-2.6666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="39" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0">
@@ -838,16 +831,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sample/data.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/session/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="41" selection-start="1118" selection-end="1118" vertical-scroll-proportion="-13.333333">
+        <state line="12" column="5" selection-start="634" selection-end="634" vertical-scroll-proportion="-8.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="16" selection-start="83" selection-end="83" vertical-scroll-proportion="0.116504855">
+        <state line="4" column="0" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/nn.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sample/data.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="39" selection-start="388" selection-end="388" vertical-scroll-proportion="0.31141868">
           <folding />
         </state>
       </provider>

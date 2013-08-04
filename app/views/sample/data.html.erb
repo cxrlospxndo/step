@@ -8,17 +8,19 @@
     </fieldset>
     <ul data-role="listview" data-theme="c">
       <li>
-        <img src="<%= @data[:pic] %>" class="ui-li-thumb">
+        <% if@data[:pic]!='NO TIENE FOTO'%>
+            <img src="<%= @data[:pic] %>" class="ui-li-thumb">
+        <% end %>
         <h3 class="ui-li-heading" id="nombre"><%= @data[:nombre].mb_chars.titleize  %></h3>
         <p class="ui-li-desc" id="esp">Especialidad <%= @data[:especialidad].mb_chars.titleize  %></p>
         <p class="ui-li-desc" id="esp">Facultad <%= @data[:facultad].mb_chars.titleize  %></p>
         <p class="ui-li-desc" id="esp">Situacion : <%= @data[:situacion].mb_chars.titleize  %></p>
-        <% if @data[:egreso].strip != '' %>
+        <% if @data[:egreso] != '' %>
             <p class="ui-li-desc" id="esp">Egreso : <%= @data[:egreso].mb_chars.titleize %></p>
         <% end %>
         <p class="ui-li-desc" id="esp">Medida Disciplinaria : <%= @data[:medida_disciplinaria].mb_chars.titleize  %></p>
 
-        <% if @data[:ciclo_relativo].strip != '' %>
+        <% if @data[:ciclo_relativo] != ' ' %>
             <p class="ui-li-desc" id="ciclo">Ciclo relativo : <%= dar_formato @data[:ciclo_relativo] %></p>
         <% end %>
       </li>
