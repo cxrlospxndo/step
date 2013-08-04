@@ -8,4 +8,5 @@ Step::Application.routes.draw do
   match '/signout' => 'session#destroy', :as => :signout
   match '/sample' => 'sample#index', :as => :sample
   match '/notas' => 'session#show'
+  match '/data/:codigo' => 'sample#data'
 end

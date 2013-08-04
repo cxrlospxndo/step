@@ -146,7 +146,7 @@ GEM
     unf (0.0.5)
       unf_ext
     unf_ext (0.0.5)
-    uni (0.0.8)
+    uni (0.0.9)
       mechanize
       nokogiri
     webrobots (0.0.13)

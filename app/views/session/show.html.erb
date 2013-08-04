@@ -1,10 +1,10 @@
 <ul data-role="listview" data-theme="c">
   <li>
     <img src="<%= @data[:pic] %>" class="ui-li-thumb">
-    <h3 class="ui-li-heading"><%= @data[:nombre].mb_chars.titleize  %></h3>
-    <p class="ui-li-desc"><%= @data[:especialidad].mb_chars.titleize  %></p>
-    <p class="ui-li-desc">Ciclo relativo : <%= dar_formato @data[:ciclo_relativo] %></p>
-    <p>Reporte de notas :
+    <h3 class="ui-li-heading" id="nombre"><%= @data[:nombre].mb_chars.titleize  %></h3>
+    <p class="ui-li-desc" id="esp"><%= @data[:especialidad].mb_chars.titleize  %></p>
+    <p class="ui-li-desc" id="ciclo">Ciclo relativo : <%= dar_formato @data[:ciclo_relativo] %></p>
+    <p id="reporte">Reporte de notas :
         <a href="<%= url_for :action=> 'show', :format => :xls %>"  data-ajax="false">xls</a> |
         <a href="<%= url_for :action=> 'show', :format => :pdf %>"  data-ajax="false">pdf</a>
     </p>

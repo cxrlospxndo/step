@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     if fac =~ /URBANISMO/ 
       return 'A'
     end
-    if fac =~ /CIENCIAS/ 
+    if fac == 'CIENCIAS'
       return 'N'
     end 
     if fac =~ /AMBIENTAL/ 

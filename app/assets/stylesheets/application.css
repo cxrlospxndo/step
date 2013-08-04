@@ -16,18 +16,30 @@
 	color: white;
 	text-align: center;
 }
-
+#title {
+    font-size: 150%;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    zoom: 1.5;
+}
+#nombre, #esp, #ciclo, #reporte, #reload {
+    font-family: 'Raleway', serif;
+}
 a {
     text-decoration:none;
-    font-family: serif;
+    font-family: 'Raleway', sans-serif;
 }
 a:hover {
     color:gray;
+    font-family: 'Raleway', sans-serif;
 }
 
+span {
+    font-family: 'Raleway', sans-serif;
+}
 table th {
 	background-color: #387bbe;	
-	font-family: Helvetica, Verdana, sans-serif, Arial,serif;
+	font-family: 'Raleway', Verdana, sans-serif, Arial,serif;
 	font-weight: bold;
 	font-size: 0.9em;
 	color: white;
@@ -38,7 +50,7 @@ table th {
 	text-align: center;
 }
 table td {
-	font-family: Helvetica, Verdana, sans-serif, Arial, serif;
+	font-family: 'Raleway', Verdana, sans-serif, Arial, serif;
 	font-weight: normal;
 	font-size: .9em;
 	color: #404040;
@@ -63,17 +75,20 @@ article form {
 }
 #user_codigo, #user_password, #codigo, #password {
     text-align: center;
+    font-family: 'Raleway', sans-serif;
 }
 p {
     letter-spacing: 1.33px;
 }
 #descr {
-    font-family: "Anonymous Pro", serif;
+    font-family: 'Raleway', serif;
     text-align: left;
+    font-size: 90%;
 }
 #descl {
-    font-family: "Anonymous Pro", serif;
+    font-family: 'Raleway', serif;
     text-align: right;
+    font-size: 90%;
 }
 #imgl {
     text-align: left;

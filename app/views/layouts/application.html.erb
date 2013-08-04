@@ -4,6 +4,8 @@
   <title>Step</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
@@ -22,13 +24,11 @@
 <![endif]-->
 </head>
 <body>
-
 <section id ="home" data-role="page">
   <header data-role="header">
     <nav data-role="navbar">
       <ul>
-        <li><%= link_to "Home", root_path, 'data-icon' => 'home', 'data-ajax' => 'false' %></li>
-        <li><a href="http://www.orce.uni.edu.pe" data-icon='alert'>Orce</a></li>
+        <div id="title" href="/">Step</div>
       </ul>
     </nav>
   </header>
