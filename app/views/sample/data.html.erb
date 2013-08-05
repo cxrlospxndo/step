@@ -1,17 +1,14 @@
-<% content_for :url do %><%='http://orce.herokuapp.com/data/'+@data[:codigo]%><% end %>
-<% if @data[:pic] != 'NO TIENE FOTO' %>
-    <% content_for :image do %><%=@data[:pic]%><% end %>
-<% end %>
-<% content_for :description do %><%=@data[:nombre].strip + ', ' + @data[:especialidad]%><% end %>
-
 <% if @data.empty? %>
     <fieldset class="ui-grid-a">
       <div class="ui-block-a" id='descr'><a href="/">&lt;&lt; Regresar</a></div>
     </fieldset>
 <% else %>
-    <fieldset class="ui-grid-a">
-      <div class="ui-block-a" id='descr'><a href="/">&lt;&lt; Regresar</a></div>
-    </fieldset>
+    <% content_for :url do %><%='http://orce.herokuapp.com/data/'+@data[:codigo]%><% end %>
+    <% if @data[:pic] != 'NO TIENE FOTO' %>
+        <% content_for :image do %><%=@data[:pic]%><% end %>
+    <% end %>
+    <% content_for :description do %><%=@data[:nombre].strip + ', ' + @data[:especialidad]%><% end %>
+    <br>
     <ul data-role="listview" data-theme="c">
       <li>
         <% if@data[:pic]!='NO TIENE FOTO'%>
@@ -32,3 +29,13 @@
       </li>
     </ul>
 <% end %>
+
+<script>
+
+</script>
+<form action="javascript:completeAndRedirect();">
+  <div data-role="fieldcontain">
+    <input type="text" id="redirect" required="required" placeholder="buscar x codigo"
+            style="width:140px; font-family:'Raleway', sans-serif; color: #295b8e; font-size:18px">
+  </div>
+</form>
