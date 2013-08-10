@@ -5,7 +5,6 @@
     <p class="ui-li-desc" id="esp"><%= @data[:especialidad].mb_chars.titleize  %></p>
     <p class="ui-li-desc" id="ciclo">Ciclo relativo : <%= dar_formato @data[:ciclo_relativo] %></p>
     <p id="reporte">Reporte de notas :
-        <a href="<%= url_for :action=> 'show', :format => :xls %>"  data-ajax="false">xls</a> |
         <a href="<%= url_for :action=> 'show', :format => :pdf %>"  data-ajax="false">pdf</a>
     </p>
   </li>
@@ -50,7 +49,7 @@
 <% end %>
 <div data-role="navbar">
   <ul>
-    <li><%= link_to 'Salir', signout_path, confirm: "Quieres cerrar tu session como #{@data[:nombre].mb_chars.titleize }?", method: :delete, 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
+    <li><%= link_to 'Salir', signout_path, confirm: "Quieres cerrar tu session?", 'data-role' => 'button', 'data-icon' => "delete", 'data-theme' => 'b' %></li>
   </ul>
 </div>
 
